@@ -204,12 +204,9 @@
     </div>
 
     <div class="fld">
-      <label>繳費方式</label>
-      <div class="radios">
-        <div class="radio-pill"><input type="radio" name="payMethod" id="payOnsite" value="現場繳費" checked><label for="payOnsite">現場繳費</label></div>
-        <div class="radio-pill"><input type="radio" name="payMethod" id="payTransfer" value="事先匯款"><label for="payTransfer">事先匯款</label></div>
-      </div>
-      <div id="transferInfo" style="display:none; margin-top:10px; font-size:13.5px; color:#8a7a5f; background:#fff8ec; border-radius:12px; padding:12px 14px;"></div>
+      <label>繳費方式 — 事先匯款</label>
+      <input type="hidden" name="payMethod" value="事先匯款">
+      <div id="transferInfo" style="margin-top:6px; font-size:14px; color:#7a6a52; background:#fff8ec; border:1.5px solid #f0dcbf; border-radius:14px; padding:14px 16px; line-height:1.9;"></div>
     </div>
 
     <div class="fld">
@@ -251,7 +248,7 @@
     place: 'SNOOPY Play Center（SNOOPY 親子樂園）',
     // 匯款帳號（選「事先匯款」時顯示）；沒有就留空字串，會自動改成「主辦另行通知」
     bankInfo: '中國信託（822）　帳號 107890224779',   // 銀行＋帳號
-    bankName: '',              // 戶名（待補）例：'財團法人○○基金會'
+    bankName: '林宏儒',        // 戶名
     // 備援模式聯絡方式（SCRIPT_URL 留空時用）
     contactLine: '@maybeyou',
     contactLineUrl: 'https://lin.ee/9z3ohzd',
@@ -294,17 +291,11 @@
   ['adults','kids','sponsorKids','donation'].forEach(id => $(id).addEventListener('input', calc));
   calc();
 
-  // 匯款資訊顯示
-  const transferInfo = () => {
-    const has = CONFIG.bankInfo || CONFIG.bankName;
-    $('transferInfo').innerHTML = has
-      ? '請匯款至：<br><b>' + (CONFIG.bankName||'') + '</b><br>' + (CONFIG.bankInfo||'') + '<br>匯款後請於備註填末五碼。'
-      : '主辦單位將於報名後提供匯款帳號 🙏';
-  };
-  document.querySelectorAll('[name=payMethod]').forEach(r => r.addEventListener('change', e => {
-    $('transferInfo').style.display = e.target.value === '事先匯款' ? 'block' : 'none';
-    if(e.target.value === '事先匯款') transferInfo();
-  }));
+  // 匯款資訊顯示（固定顯示；本活動只收事先匯款）
+  const has = CONFIG.bankInfo || CONFIG.bankName;
+  $('transferInfo').innerHTML = has
+    ? '請於報名後匯款至：<br><b>戶名：' + (CONFIG.bankName||'') + '</b><br>' + (CONFIG.bankInfo||'') + '<br><span style="color:#c07d2b;">💡 匯款後請在上方「備註」填帳號末五碼，方便對帳。</span>'
+    : '主辦單位將於報名後提供匯款帳號 🙏';
 
   // 頁尾
   $('foot').innerHTML = SCRIPT_URL
