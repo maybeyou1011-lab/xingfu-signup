@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>幸福大無限・挑戰巔峰之旅｜活動報名</title>
+<meta name="description" content="幸福大無限・挑戰巔峰之旅 7/19 公益同樂活動報名。入場費每人130元，斷捨離公益拍賣所得贊助關懷之家小朋友，因為有你，世界更美好。">
+<meta property="og:title" content="幸福大無限・挑戰巔峰之旅｜活動報名">
+<meta property="og:description" content="7/19 公益同樂・斷捨離拍賣贊助關懷之家小朋友。一起報名，讓愛延續。">
+<style>
+  /* ============================================================
+     設定區：非工程師也能改。改完存檔即可，不用懂程式。
+     ①送出網址 SCRIPT_URL：等 Google 試算表接好後貼進來（下面有教）。
+       還沒接好也沒關係，會自動改成「用 Email / LINE 回報」的備援模式。
+     ②活動資訊 CONFIG：地點、匯款帳號等，直接改引號中間的字。
+     ============================================================ */
+  :root{
+    --gold:#e0a544; --gold-deep:#c07d2b; --sky:#3f6fb0; --ink:#2b2a2f;
+    --cream:#fffaf0; --soft:#fff4e0; --line-green:#06c755; --heart:#e5564b;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+    color:var(--ink); line-height:1.7;
+    background:linear-gradient(160deg,#fdf3e0 0%,#fbe6cf 40%,#f3d9e6 100%);
+    background-attachment:fixed; padding:20px 12px 60px;
+  }
+  .wrap{max-width:600px; margin:0 auto;}
+
+  /* 海報 */
+  .poster{position:relative; border-radius:26px; overflow:hidden; line-height:0;
+    box-shadow:0 14px 40px rgba(192,125,43,.22);}
+  .poster img{width:100%; height:auto; display:block;}
+  .poster-badge{position:absolute; left:50%; bottom:14px; transform:translateX(-50%);
+    line-height:1.4; box-shadow:0 4px 14px rgba(0,0,0,.25); white-space:nowrap;}
+
+  /* 頂部標題卡 */
+  .hero{
+    background:linear-gradient(135deg,#fff8ec,#fff);
+    border-radius:26px; padding:30px 26px 26px; text-align:center;
+    box-shadow:0 14px 40px rgba(192,125,43,.18); position:relative; overflow:hidden;
+  }
+  .hero::before{content:""; position:absolute; inset:0; background:
+    radial-gradient(circle at 20% 0%,rgba(224,165,68,.16),transparent 45%),
+    radial-gradient(circle at 90% 20%,rgba(63,111,176,.12),transparent 40%);}
+  .hero > *{position:relative;}
+  .badge{display:inline-block; background:var(--gold); color:#fff; font-weight:800;
+    font-size:13px; padding:5px 16px; border-radius:999px; letter-spacing:1px; margin-bottom:12px;}
+  .title{font-size:34px; font-weight:900; letter-spacing:2px; line-height:1.2;
+    background:linear-gradient(92deg,var(--gold-deep),#d94f2a 45%,var(--sky));
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+  .subtitle{font-size:18px; font-weight:800; color:var(--sky); letter-spacing:4px; margin-top:6px;}
+  .slogan{font-size:14px; color:#8a7a5f; margin-top:10px; letter-spacing:1px;}
+  .heart-line{margin-top:14px; font-size:15px; font-weight:800; color:var(--gold-deep);}
+  .heart-line .h{color:var(--heart);}
+
+  /* 資訊列 */
+  .info{background:var(--cream); border-radius:20px; padding:20px 22px; margin-top:16px;
+    box-shadow:0 8px 24px rgba(192,125,43,.10);}
+  .info-row{display:flex; gap:12px; padding:9px 0; border-bottom:1px dashed #f0dcbf; align-items:flex-start;}
+  .info-row:last-child{border-bottom:none;}
+  .info-ic{font-size:20px; flex:0 0 26px; text-align:center;}
+  .info-k{font-weight:800; color:var(--gold-deep); flex:0 0 82px;}
+  .info-v{flex:1; color:#4a463f;}
+  .info-v b{color:var(--heart);}
+
+  /* 公益說明 */
+  .charity{background:linear-gradient(135deg,#fff4f0,#fff9f3); border:1.5px solid #f6d8c9;
+    border-radius:20px; padding:18px 20px; margin-top:14px; font-size:14.5px; color:#6b5a4a;}
+  .charity h3{font-size:15px; color:var(--heart); margin-bottom:6px; display:flex; align-items:center; gap:6px;}
+
+  /* 表單 */
+  form{background:#fff; border-radius:24px; padding:26px 22px; margin-top:18px;
+    box-shadow:0 12px 36px rgba(192,125,43,.14);}
+  .fld{margin-bottom:18px;}
+  .fld label{display:block; font-weight:800; margin-bottom:7px; font-size:15px;}
+  .fld label .req{color:var(--heart); font-size:13px;}
+  .fld .hint{font-weight:400; color:#a79683; font-size:12.5px; margin-left:4px;}
+  input[type=text], input[type=tel], input[type=email], input[type=number], textarea, select{
+    width:100%; padding:13px 14px; border:1.5px solid #ecdcc2; border-radius:14px;
+    font-size:16px; font-family:inherit; background:#fffdf9; color:var(--ink); transition:.15s;}
+  input:focus, textarea:focus, select:focus{outline:none; border-color:var(--gold); background:#fff;
+    box-shadow:0 0 0 3px rgba(224,165,68,.15);}
+  textarea{min-height:74px; resize:vertical;}
+  .two{display:flex; gap:12px;}
+  .two > div{flex:1;}
+
+  /* 人數 stepper 用普通 number 即可；小孩樂園 checkbox */
+  .check{display:flex; align-items:center; gap:9px; background:#fff8ec; border:1.5px solid #f0dcbf;
+    border-radius:14px; padding:12px 14px; cursor:pointer; font-size:14.5px; font-weight:700; color:#6b5a4a;}
+  .check input{width:20px; height:20px; accent-color:var(--gold-deep);}
+
+  /* 繳費方式 */
+  .radios{display:flex; gap:10px; flex-wrap:wrap;}
+  .radio-pill{flex:1; min-width:130px;}
+  .radio-pill input{position:absolute; opacity:0;}
+  .radio-pill label{display:block; text-align:center; border:1.5px solid #ecdcc2; border-radius:14px;
+    padding:12px; cursor:pointer; font-weight:800; color:#6b5a4a; margin:0; transition:.15s;}
+  .radio-pill input:checked + label{background:var(--gold); color:#fff; border-color:var(--gold);}
+
+  /* 費用小結 */
+  .total{background:linear-gradient(135deg,#fff6e6,#fdeccf); border-radius:18px; padding:18px 20px; margin:18px 0;}
+  .total .t-row{display:flex; justify-content:space-between; padding:5px 0; font-size:14.5px; color:#6b5a4a;}
+  .total .t-row.sum{border-top:2px dashed #e5c99a; margin-top:8px; padding-top:12px;
+    font-size:20px; font-weight:900; color:var(--gold-deep);}
+  .total .t-row.sum span:last-child{color:var(--heart);}
+
+  .submit{width:100%; padding:17px; border:none; border-radius:16px; cursor:pointer;
+    background:linear-gradient(92deg,var(--gold-deep),#d94f2a); color:#fff; font-size:18px; font-weight:900;
+    letter-spacing:2px; box-shadow:0 10px 24px rgba(192,90,43,.32); transition:.15s;}
+  .submit:hover{transform:translateY(-2px);}
+  .submit:disabled{opacity:.6; cursor:not-allowed; transform:none;}
+
+  /* 成功卡 */
+  .success{display:none; background:#fff; border-radius:24px; padding:40px 26px; text-align:center;
+    box-shadow:0 12px 36px rgba(192,125,43,.14); margin-top:18px;}
+  .success .big{font-size:60px; margin-bottom:10px;}
+  .success h2{font-size:26px; color:var(--gold-deep); margin-bottom:10px;}
+  .success p{color:#6b5a4a; font-size:15px;}
+  .success .recap{background:#fff8ec; border-radius:14px; padding:14px; margin:16px 0; text-align:left; font-size:14px; color:#6b5a4a;}
+
+  .foot{text-align:center; color:#a79683; font-size:12.5px; margin-top:22px; line-height:1.9;}
+  .foot a{color:var(--line-green); font-weight:800; text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 海報 -->
+  <div class="poster">
+    <img src="poster.png" alt="幸福大無限・挑戰巔峰之旅">
+    <span class="badge poster-badge">7 / 19（日）公益同樂・開放報名</span>
+  </div>
+
+  <!-- 活動資訊 -->
+  <div class="info">
+    <div class="info-row"><div class="info-ic">📅</div><div class="info-k">活動日期</div><div class="info-v"><b>7 / 19（日）</b></div></div>
+    <div class="info-row"><div class="info-ic">⏰</div><div class="info-k">活動時間</div><div class="info-v">10:00 ～ 13:30</div></div>
+    <div class="info-row"><div class="info-ic">🐶</div><div class="info-k">親子樂園</div><div class="info-v">SNOOPY 親子樂園 11:00 ～ 13:00<br><span style="color:var(--gold-deep);font-size:13px;">※ 入園需穿著襪子</span></div></div>
+    <div class="info-row"><div class="info-ic">🎟️</div><div class="info-k">票價</div><div class="info-v">大人票 <b>130 元</b>・兒童票 <b>250 元</b></div></div>
+    <div class="info-row"><div class="info-ic">📍</div><div class="info-k">活動地點</div><div class="info-v" id="cfgPlace"></div></div>
+  </div>
+
+  <!-- 公益說明 -->
+  <div class="charity">
+    <h3>💛 這是一場有愛的活動</h3>
+    這次活動的<b>斷捨離公益拍賣</b>費用，讓大家可以捐贈贊助！
+    我們想邀請 <b>關懷之家 40 位小朋友</b>一起來同樂，除了樂園門票，還包含<b>遊覽車接送與餐食費</b>。
+    你可以在下方認捐幾位小朋友、或自由樂捐，讓更多孩子完整參與這一天的快樂。
+  </div>
+
+  <!-- 報名表 -->
+  <form id="regForm">
+    <div class="fld">
+      <label>報名人姓名 <span class="req">＊必填</span></label>
+      <input type="text" name="name" required placeholder="請填真實姓名">
+    </div>
+
+    <div class="fld">
+      <label>手機號碼 <span class="req">＊必填</span></label>
+      <input type="tel" name="phone" required placeholder="09xx-xxx-xxx" inputmode="numeric">
+    </div>
+
+    <div class="two">
+      <div class="fld">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="用來寄報名確認">
+      </div>
+      <div class="fld">
+        <label>LINE ID <span class="hint">選填</span></label>
+        <input type="text" name="line" placeholder="方便聯絡">
+      </div>
+    </div>
+
+    <div class="two">
+      <div class="fld">
+        <label>大人票 <span class="hint">位・每位130元</span></label>
+        <input type="number" name="adults" id="adults" min="0" value="1" inputmode="numeric">
+      </div>
+      <div class="fld">
+        <label>兒童票 <span class="hint">位・每位250元</span></label>
+        <input type="number" name="kids" id="kids" min="0" value="0" inputmode="numeric">
+      </div>
+    </div>
+    <p style="font-size:13px; color:#a79683; margin:-8px 0 18px 2px;">🧦 小提醒：進 SNOOPY 親子樂園需穿著襪子喔</p>
+
+    <div class="fld">
+      <label>💛 認捐關懷之家小朋友 <span class="hint">選填・每位250元</span></label>
+      <input type="number" name="sponsorKids" id="sponsorKids" min="0" value="0" inputmode="numeric" placeholder="想贊助幾位小朋友來同樂？">
+    </div>
+
+    <div class="fld">
+      <label>🤍 斷捨離公益拍賣・自由樂捐 <span class="hint">選填・填金額</span></label>
+      <input type="number" name="donation" id="donation" min="0" value="0" inputmode="numeric" placeholder="任何金額都是愛">
+    </div>
+
+    <!-- 費用小結 -->
+    <div class="total">
+      <div class="t-row"><span>大人票 <span id="adultTxt">1</span> × 130</span><span id="adultFee">$130</span></div>
+      <div class="t-row" id="kidRow" style="display:none"><span>兒童票 <span id="kidTxt">0</span> × 250</span><span id="kidFee">$0</span></div>
+      <div class="t-row" id="sponsorRow" style="display:none"><span>認捐小朋友 <span id="sponsorTxt">0</span> 位 × 250</span><span id="sponsorFee">$0</span></div>
+      <div class="t-row" id="donationRow" style="display:none"><span>公益樂捐</span><span id="donationTxt">$0</span></div>
+      <div class="t-row sum"><span>合計</span><span id="total">$130</span></div>
+    </div>
+
+    <div class="fld">
+      <label>繳費方式</label>
+      <div class="radios">
+        <div class="radio-pill"><input type="radio" name="payMethod" id="payOnsite" value="現場繳費" checked><label for="payOnsite">現場繳費</label></div>
+        <div class="radio-pill"><input type="radio" name="payMethod" id="payTransfer" value="事先匯款"><label for="payTransfer">事先匯款</label></div>
+      </div>
+      <div id="transferInfo" style="display:none; margin-top:10px; font-size:13.5px; color:#8a7a5f; background:#fff8ec; border-radius:12px; padding:12px 14px;"></div>
+    </div>
+
+    <div class="fld">
+      <label>備註 <span class="hint">選填</span></label>
+      <textarea name="note" placeholder="飲食、行動需求、想說的話…"></textarea>
+    </div>
+
+    <input type="hidden" name="entryFeeVal" id="entryFeeVal">
+    <input type="hidden" name="sponsorFeeVal" id="sponsorFeeVal">
+    <input type="hidden" name="totalVal" id="totalVal">
+
+    <button type="submit" class="submit" id="submitBtn">送出報名 ♥</button>
+  </form>
+
+  <!-- 成功 -->
+  <div class="success" id="successMsg">
+    <div class="big">🎉</div>
+    <h2>報名成功！</h2>
+    <p>謝謝你一起讓愛延續 💛<br>我們會盡快與你聯絡活動細節。</p>
+    <div class="recap" id="recap"></div>
+    <p style="font-size:13px; color:#a79683;">若需修改報名，請直接聯絡主辦單位。</p>
+  </div>
+
+  <div class="foot" id="foot"></div>
+</div>
+
+<script>
+  // ============================================================
+  // ① 送出網址：接好 Google 試算表後把整段網址貼進引號中間。
+  //    範例：'https://script.google.com/macros/s/AKfy..../exec'
+  //    留空 '' 就會啟用「備援模式」（改用 Email/LINE 回報，仍可上線用）。
+  // ============================================================
+  const SCRIPT_URL = '';
+
+  // ============================================================
+  // ② 活動資訊：直接改引號中間的字
+  // ============================================================
+  const CONFIG = {
+    place: 'SNOOPY Play Center（SNOOPY 親子樂園）',
+    // 匯款帳號（選「事先匯款」時顯示）；沒有就留空字串，會自動改成「主辦另行通知」
+    bankInfo: '',              // 例：'台北富邦(012) 帳號 0074212-000-1074'
+    bankName: '',              // 例：'財團法人○○基金會'
+    // 備援模式聯絡方式（SCRIPT_URL 留空時用）
+    contactLine: '@maybeyou',
+    contactLineUrl: 'https://lin.ee/9z3ohzd',
+  };
+
+  const ADULT = 130, KID = 250, SPONSOR = 250;
+  const $ = id => document.getElementById(id);
+
+  // 帶入設定文字
+  $('cfgPlace').textContent = CONFIG.place;
+
+  // 費用即時計算
+  function calc(){
+    const adults = +$('adults').value || 0;
+    const kids = +$('kids').value || 0;
+    const sponsor = +$('sponsorKids').value || 0;
+    const donation = +$('donation').value || 0;
+    const adultFee = adults * ADULT;
+    const kidFee = kids * KID;
+    const entryFee = adultFee + kidFee;
+    const sponsorFee = sponsor * SPONSOR;
+    const total = entryFee + sponsorFee + donation;
+
+    $('adultTxt').textContent = adults;
+    $('adultFee').textContent = '$' + adultFee.toLocaleString();
+    $('kidTxt').textContent = kids;
+    $('kidFee').textContent = '$' + kidFee.toLocaleString();
+    $('kidRow').style.display = kids > 0 ? 'flex' : 'none';
+    $('sponsorTxt').textContent = sponsor;
+    $('sponsorFee').textContent = '$' + sponsorFee.toLocaleString();
+    $('sponsorRow').style.display = sponsor > 0 ? 'flex' : 'none';
+    $('donationTxt').textContent = '$' + donation.toLocaleString();
+    $('donationRow').style.display = donation > 0 ? 'flex' : 'none';
+    $('total').textContent = '$' + total.toLocaleString();
+
+    $('entryFeeVal').value = entryFee;
+    $('sponsorFeeVal').value = sponsorFee;
+    $('totalVal').value = total;
+  }
+  ['adults','kids','sponsorKids','donation'].forEach(id => $(id).addEventListener('input', calc));
+  calc();
+
+  // 匯款資訊顯示
+  const transferInfo = () => {
+    const has = CONFIG.bankInfo || CONFIG.bankName;
+    $('transferInfo').innerHTML = has
+      ? '請匯款至：<br><b>' + (CONFIG.bankName||'') + '</b><br>' + (CONFIG.bankInfo||'') + '<br>匯款後請於備註填末五碼。'
+      : '主辦單位將於報名後提供匯款帳號 🙏';
+  };
+  document.querySelectorAll('[name=payMethod]').forEach(r => r.addEventListener('change', e => {
+    $('transferInfo').style.display = e.target.value === '事先匯款' ? 'block' : 'none';
+    if(e.target.value === '事先匯款') transferInfo();
+  }));
+
+  // 頁尾
+  $('foot').innerHTML = SCRIPT_URL
+    ? '主辦單位・幸福大無限公益活動<br>© 2026 讓愛延續'
+    : '報名後如需聯絡：加入官方 LINE <a href="'+CONFIG.contactLineUrl+'">'+CONFIG.contactLine+'</a>';
+
+  // 送出
+  $('regForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    calc();
+    const btn = $('submitBtn');
+    btn.disabled = true; btn.textContent = '送出中…';
+
+    const fd = new FormData(e.target);
+    const payload = Object.fromEntries(fd.entries());
+    payload.event = '幸福大無限・挑戰巔峰之旅 7/19 SNOOPY親子樂園';
+
+    // 成功後的摘要
+    const recap = '姓名：'+payload.name+'<br>人數：大人'+(payload.adults||0)+'・小孩'+(payload.kids||0)
+      +'<br>認捐小朋友：'+(payload.sponsorKids||0)+' 位'
+      +(+payload.donation>0 ? '<br>公益樂捐：$'+(+payload.donation).toLocaleString() : '')
+      +'<br>合計金額：<b>$'+(+payload.totalVal).toLocaleString()+'</b>'
+      +'<br>繳費方式：'+payload.payMethod;
+
+    try {
+      if (SCRIPT_URL) {
+        await fetch(SCRIPT_URL, {
+          method: 'POST', mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(payload).toString()
+        });
+      } else {
+        // 備援模式：還沒接試算表，先用 mailto 把報名資料寄給主辦（可正常上線先收單）
+        const body = Object.entries(payload).map(([k,v]) => k+'：'+v).join('\n');
+        window.location.href = 'mailto:contact@maybeyou.care?subject='
+          + encodeURIComponent('【幸福大無限報名】'+payload.name)
+          + '&body=' + encodeURIComponent(body);
+      }
+      $('recap').innerHTML = recap;
+      $('regForm').style.display = 'none';
+      $('successMsg').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (err) {
+      alert('送出失敗，請再試一次，或直接聯絡主辦單位 🙏');
+      btn.disabled = false; btn.textContent = '送出報名 ♥';
+    }
+  });
+</script>
+</body>
+</html>
