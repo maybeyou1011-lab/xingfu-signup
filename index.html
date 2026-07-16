@@ -149,6 +149,14 @@
     你可以在下方認捐幾位小朋友、或自由樂捐，讓更多孩子完整參與這一天的快樂。
   </div>
 
+  <!-- 報名截止卡（REG_CLOSED = true 時顯示，取代下方表單） -->
+  <div class="success" id="closedMsg" style="display:none">
+    <div class="big">🙏</div>
+    <h2>報名已截止</h2>
+    <p>謝謝大家踴躍支持這場有愛的活動 💛<br>報名名額已滿，我們 <b>7 / 19（日）</b> 現場見！</p>
+    <p style="font-size:13px; color:#a79683; margin-top:14px;">已報名如需確認或修改，請直接聯絡主辦單位。</p>
+  </div>
+
   <!-- 報名表 -->
   <form id="regForm">
     <div class="fld">
@@ -242,6 +250,12 @@
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyaw4t49ni9TJCnQs67WtnOMY8VumYLy_bpib_JsatIvTCbRXZoh5OKy5hC3Gcb3335/exec';
 
   // ============================================================
+  // 報名開關：要重新開放報名就把 true 改成 false，存檔重新部署即可。
+  // true = 關閉報名（顯示「報名已截止」，隱藏表單，不再收單）
+  // ============================================================
+  const REG_CLOSED = true;
+
+  // ============================================================
   // ② 活動資訊：直接改引號中間的字
   // ============================================================
   const CONFIG = {
@@ -259,6 +273,12 @@
 
   // 帶入設定文字
   $('cfgPlace').textContent = CONFIG.place;
+
+  // 報名截止：隱藏表單、顯示截止卡
+  if (REG_CLOSED) {
+    $('regForm').style.display = 'none';
+    $('closedMsg').style.display = 'block';
+  }
 
   // 費用即時計算
   function calc(){
